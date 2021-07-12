@@ -88,7 +88,7 @@ func (m *Model) getSoftFieldNameDeleted(table ...string) (field string) {
 	if config.UpdatedAt != "" {
 		return m.getSoftFieldName(tableName, []string{config.DeletedAt})
 	}
-	return m.getSoftFieldName(tableName, deletedFiledNames)
+	return m.getSoftFieldName(m.guessPrimaryTableName(tableName), deletedFiledNames)
 }
 
 // getSoftFieldName retrieves and returns the field name of the table for possible key.
